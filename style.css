@@ -14,11 +14,46 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#mealFilter {
-    padding: 8px;
+.filter-row {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-row:last-child {
+    margin-bottom: 0;
+}
+
+.filter-row label {
+    min-width: 150px;
+    margin-right: 10px;
+}
+
+#searchInput {
+    flex: 1;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-family: 'Poppins', sans-serif;
+    max-width: 300px;
+    height: 200%;
+}
+
+#mealFilter {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+    max-width: 300px;
+}
+
+/* Search Results */
+.search-results {
+    margin-top: 10px;
+    padding: 10px 0;
+    color: #555;
+    font-weight: 500;
+    border-top: 1px solid #eee;
 }
 
 /* Halaman List */
@@ -45,6 +80,21 @@ body {
 #menuList li:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* No results message */
+#menuList .no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    color: #666;
+    cursor: default;
+}
+
+#menuList .no-results:hover {
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Meal Type Badge */
@@ -127,4 +177,21 @@ body {
 
 #popup-detail button:hover {
     background-color: #3e8e41;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-row label {
+        margin-bottom: 5px;
+    }
+    
+    #searchInput, #mealFilter {
+        width: 100%;
+        max-width: 100%;
+    }
 }

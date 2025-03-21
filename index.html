@@ -11,14 +11,22 @@
 
     <!-- Filter Section -->
     <div id="filterSection">
-        <label for="mealFilter">Filter Jendela Makan: </label>
-        <select id="mealFilter" onchange="filterMenu()">
-            <option value="all">Semua</option>
-            <option value="sarapan">Sarapan</option>
-            <option value="makanSiang">Makan Siang</option>
-            <option value="snackSore">Snack Sore</option>
-            <option value="makanMalam">Makan Malam</option>
-        </select>
+        <div class="filter-row">
+            <label for="mealFilter">Filter Jendela Makan: </label>
+            <select id="mealFilter" onchange="applyFilters()">
+                <option value="all">Semua</option>
+                <option value="sarapan">Sarapan</option>
+                <option value="makanSiang">Makan Siang</option>
+                <option value="snackSore">Snack Sore</option>
+                <option value="makanMalam">Makan Malam</option>
+            </select>
+        </div>
+        <div class="filter-row">
+            <label for="searchInput">Cari Menu: </label>
+            <input type="text" id="searchInput" placeholder="Masukkan nama menu..." oninput="applyFilters()">
+        </div>
+        <!-- Tambahkan elemen untuk menampilkan hasil pencarian -->
+        <div id="searchResults" class="search-results"></div>
     </div>
 
     <!-- Menu List -->

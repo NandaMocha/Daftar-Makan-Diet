@@ -59,7 +59,22 @@ function getMealTypeLabel(mealType) {
 
 function renderMenuList(filteredData) {
     const menuList = document.getElementById('menuList');
+    const searchResults = document.getElementById('searchResults');
     menuList.innerHTML = '';
+    
+    // Update search results count
+    if (filteredData.length === 0) {
+        searchResults.innerHTML = 'Tidak ditemukan menu.';
+        menuList.innerHTML = '<li class="no-results">Tidak ada menu yang sesuai dengan pencarian.</li>';
+        return;
+    } else {
+        // Get current filter type
+        const filterType = document.getElementById('mealFilter').value;
+        const filterLabel = filterType === 'all' ? 'Semua Jendela Makan' : getMealTypeLabel(filterType);
+        
+        // Show count with filter info
+        searchResults.innerHTML = `Ditemukan <strong>${filteredData.length}</strong> menu pada <strong>${filterLabel}</strong>`;
+    }
 
     filteredData.forEach(menu => {
         const menuItem = document.createElement('li');
@@ -74,9 +89,32 @@ function renderMenuList(filteredData) {
     });
 }
 
-function filterMenu() {
+function applyFilters() {
     const filterValue = document.getElementById('mealFilter').value;
-    const filteredData = filterValue === 'all' ? menuData : menuData.filter(menu => menu.mealType === filterValue);
+    const searchValue = document.getElementById('searchInput').value.toLowerCase();
+    
+    // Filter by meal type
+    let filteredData = filterValue === 'all' ? menuData : menuData.filter(menu => menu.mealType === filterValue);
+    
+    // Filter by search term
+    if (searchValue.trim() !== '') {
+        filteredData = filteredData.filter(menu => {
+            // Search in menu name
+            if (menu.name.toLowerCase().includes(searchValue)) {
+                return true;
+            }
+            
+            // Search in menu details (ingredients)
+            for (let i = 0; i < menu.details.length; i++) {
+                if (menu.details[i].toLowerCase().includes(searchValue)) {
+                    return true;
+                }
+            }
+            
+            return false;
+        });
+    }
+    
     renderMenuList(filteredData);
 }
 
@@ -112,5 +150,5 @@ document.getElementById('popup').addEventListener('click', function(event) {
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initial Rendering
-    filterMenu();
+    applyFilters();
 });
