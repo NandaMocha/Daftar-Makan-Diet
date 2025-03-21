@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Makanan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Filter Section -->
+    <div id="filterSection">
+        <label for="mealFilter">Filter Jendela Makan: </label>
+        <select id="mealFilter" onchange="filterMenu()">
+            <option value="all">Semua</option>
+            <option value="sarapan">Sarapan</option>
+            <option value="makanSiang">Makan Siang</option>
+            <option value="snackSore">Snack Sore</option>
+            <option value="makanMalam">Makan Malam</option>
+        </select>
+    </div>
+
+    <!-- Menu List -->
+    <ul id="menuList"></ul>
+
+    <!-- Popup -->
+    <div id="popup">
+        <div id="popup-detail">
+            <h2 id="popupTitle"></h2>
+            <p><strong>Jendela Makan:</strong> <span id="popupMealType"></span></p>
+            <p><strong>Kalori:</strong> <span id="popupCalories"></span></p>
+            <p><strong>Protein:</strong> <span id="popupProtein"></span></p>
+            <p><strong>Detail Menu:</strong></p>
+            <ul id="popupDetails"></ul>
+            <button onclick="closePopup()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Include the external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

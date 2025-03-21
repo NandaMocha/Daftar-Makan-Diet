@@ -1,0 +1,130 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Filter Section */
+#filterSection {
+    margin: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#mealFilter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Halaman List */
+#menuList {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+#menuList li {
+    background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+#menuList li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Meal Type Badge */
+.meal-type-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 15px;
+    font-weight: 500;
+    color: white;
+}
+
+.sarapan {
+    background-color: #F59E0B;
+}
+
+.makanSiang {
+    background-color: #10B981;
+}
+
+.snackSore {
+    background-color: #8B5CF6;
+}
+
+.makanMalam {
+    background-color: #3B82F6;
+}
+
+/* Popup Detail */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup-detail {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#popup-detail h2 {
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+#popup-detail ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+#popup-detail li {
+    margin-bottom: 5px;
+}
+
+#popup-detail button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#popup-detail button:hover {
+    background-color: #3e8e41;
+}
