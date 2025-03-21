@@ -31,11 +31,13 @@ body {
 
 #mealFilter, #searchInput {
     flex: 1;
+    flex-grow: 1;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-family: 'Poppins', sans-serif;
     max-width: 300px;
+    margin-right: 0; /* Remove margin-right for the search input */
 }
 
 /* Search Results */
@@ -184,5 +186,6 @@ body {
     #searchInput, #mealFilter {
         width: 100%;
         max-width: 100%;
+        margin-right: 0; /* Remove margin-right for the search input */
     }
 }
